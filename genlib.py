@@ -15,11 +15,13 @@ X86_REGS = ["eax", "ebx", "ecx", "edx", "esi", "edi", "esp", "ebp"]
 def create_function(name, mnemonic, req_op, opt_op = None):
     return \
         f"""__attribute__((naked))void {name}(){{
-            __asm {{
-                {mnemonic} {",".join([x for x in [req_op, opt_op] if x])}
-                ret
-            }}
-        }}"""
+            asm__volatile__ (
+            ".intel_syntax   noprefix;"
+            "{mnemonic} {','.join([x for x in [req_op, opt_op] if x])};"
+            "ret;"
+            );
+        }}
+        """
 
 def main():
     functions: List[str] = []
