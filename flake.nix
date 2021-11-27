@@ -9,13 +9,16 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         pkgs32 = pkgs.pkgsi686Linux;
-      in {
+      in rec {
         defaultPackage = pkgs32.clangStdenv.mkDerivation {
           pname = "librop";
           version = "1.0.0";
           nativeBuildInputs = with pkgs32; [ cmake python3 ];
           src = ./.;
           postPatch = "patchShebangs .";
+        };
+        packages = {
+          librop = defaultPackage;
         };
       });
 }
