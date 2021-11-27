@@ -17,8 +17,6 @@
           src = ./.;
           postPatch = "patchShebangs .";
         };
-        packages = {
-          librop = defaultPackage;
-        };
+        packages = flake-utils.lib.flattenTree { librop = defaultPackage; };
       });
 }
