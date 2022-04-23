@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from itertools import product
 from typing import List
 
 
@@ -27,10 +28,9 @@ def main():
     functions: List[str] = []
 
     for op in REG2REG_OP:
-        for dst in X86_REGS:
-            for src in X86_REGS:
-                symname = f"{op}_{dst}_{src}"
-                functions.append(create_function(symname, op, dst, src))
+        for dst, src in product(X86_REGS, X86_REGS):
+            symname = f"{op}_{dst}_{src}"
+            functions.append(create_function(symname, op, dst, src))
 
     for op in REGONLY_OP:
         for r in X86_REGS:
