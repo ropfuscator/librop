@@ -11,9 +11,6 @@ set(VERSION_STRING ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 set_target_properties(rop PROPERTIES VERSION ${VERSION_STRING} SOVERSION
                                                                ${VERSION_MAJOR})
 target_compile_options(rop PRIVATE "-fasm-blocks")
-target_compile_options(rop PRIVATE "-fPIE")
-target_compile_options(rop PRIVATE "-Wl,-pie")
-target_compile_options(rop PRIVATE "-fPIC")
 
 add_custom_command(
   OUTPUT librop.c
