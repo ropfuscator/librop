@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.11)
 project(librop)
 
-add_library(rop librop.c)
+add_library(rop SHARED librop.c)
 
 set(VERSION_MAJOR 1)
 set(VERSION_MINOR 0)
