@@ -10,7 +10,6 @@
         localSystem = { inherit system; };
         crossSystem = {
           config = "i686-unknown-linux-gnu";
-          useLLVM = true;
         };
         pkgs = import nixpkgs {
           inherit localSystem crossSystem;
