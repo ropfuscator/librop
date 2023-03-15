@@ -10,7 +10,7 @@ Designed to be used with [ROPfuscator](https://github.com/ropfuscator/ropfuscato
 To install `librop` using CMake, follow these steps:
 
 ```bash
-git clone https://github.com/yourusername/librop.git
+git clone https://github.com/ropfuscator/librop.git
 cd librop
 mkdir build && pushd build
 cmake .. && cmake --build .
